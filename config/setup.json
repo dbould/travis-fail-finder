@@ -1,4 +1,5 @@
 {
   "repository": "travis-fail-finder",
-  "token": "fZ1gERYqeLtGNd0BesVmEg"
+  "repository_login": "dbould",
+  "auth_token": "fZ1gERYqeLtGNd0BesVmEg"
 }
