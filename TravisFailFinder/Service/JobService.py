@@ -18,14 +18,12 @@ class JobService:
         }
 
     def get_repo_id(self, repo_slug):
-        request = requests.get(self.base_url + 'repo/' + repo_slug, headers=self.get_headers())
-        repo = json.loads(request.text)
+        repo = self.get_request_response(self.base_url + 'repo/' + repo_slug)
 
         return repo['id']
 
     def get_branch_id(self, repo_id, branch_name):
-        request = requests.get(self.base_url + 'repo/' + repo_id + '/branches', headers=self.get_headers())
-        branches = json.loads(request.text)
+        branches = self.get_request_response(self.base_url + 'repo/' + repo_id + '/branches')
 
         branch_id = 0
 
@@ -36,8 +34,7 @@ class JobService:
         return branch_id
 
     def get_job_id(self, branch_id):
-        request = requests.get(self.base_url + 'build/' + branch_id + '/jobs', headers=self.get_headers())
-        jobs = json.loads(request.text)
+        jobs = self.get_request_response(self.base_url + 'build/' + branch_id + '/jobs')
 
         for job in jobs['jobs']:
             job_id = job['id']
@@ -45,7 +42,11 @@ class JobService:
         return job_id
 
     def get_log(self, job_id):
-        request = requests.get(self.base_url + 'job/' + job_id + '/log', headers=self.get_headers())
-        log = json.loads(request.text)
+        log = self.get_request_response(self.base_url + 'job/' + job_id + '/log')
 
         return log['content']
+
+    def get_request_response(self, url):
+        response = requests.get(url, headers=self.get_headers())
+
+        return json.loads(response.text)
