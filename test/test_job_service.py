@@ -11,6 +11,6 @@ class TestTravisFailFinder:
         job_service = JobService()
         assert job_service.get_branch_id('17456283', 'failing_branch') == 337061161
 
-    # def test_get_job_id(self):
-    #     job_service = JobService()
-    #     assert job_service.get_job_id('336890330') == 336890330
+    def test_get_job_id(self):
+        job_service = JobService()
+        assert job_service.get_job_id('337061161') == 337061162
