@@ -1,2 +1,2 @@
-from TravisFailFinder.Service.JobService import JobService
+from TravisFailFinder.Factory.JobServiceFactory import JobServiceFactory as JobService
 from TravisFailFinder.Service.ConfigService import ConfigService
