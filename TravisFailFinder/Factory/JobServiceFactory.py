@@ -5,5 +5,6 @@ class JobServiceFactory:
 
     @staticmethod
     def create():
+        auth_token = 'fZ1gERYqeLtGNd0BesVmEg'
 
-        return JobService()
+        return JobService(auth_token)

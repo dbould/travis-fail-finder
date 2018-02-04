@@ -4,10 +4,15 @@ import json
 
 class JobService:
 
+    auth_token = ''
+
+    def __init__(self, auth_token):
+        self.auth_token = auth_token
+
     def get_repo_id(self, repo_slug):
 
         headers = {
-            'Authorization': 'token fZ1gERYqeLtGNd0BesVmEg',
+            'Authorization': 'token ' + self.auth_token,
             'Travis-API-Version': '3',
         }
 
@@ -19,7 +24,7 @@ class JobService:
     def get_branch_id(self, repo_id, branch_name):
 
         headers = {
-            'Authorization': 'token fZ1gERYqeLtGNd0BesVmEg',
+            'Authorization': 'token ' + self.auth_token,
             'Travis-API-Version': '3',
         }
 
@@ -37,7 +42,7 @@ class JobService:
     def get_job_id(self, branch_id):
 
         headers = {
-            'Authorization': 'token fZ1gERYqeLtGNd0BesVmEg',
+            'Authorization': 'token ' + self.auth_token,
             'Travis-API-Version': '3',
         }
 
@@ -52,7 +57,7 @@ class JobService:
     def get_log(self, job_id):
 
         headers = {
-            'Authorization': 'token fZ1gERYqeLtGNd0BesVmEg',
+            'Authorization': 'token ' + self.auth_token,
             'Travis-API-Version': '3',
         }
 
