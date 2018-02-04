@@ -48,3 +48,15 @@ class JobService:
             job_id = job['id']
 
         return job_id
+
+    def get_log(self, job_id):
+
+        headers = {
+            'Authorization': 'token fZ1gERYqeLtGNd0BesVmEg',
+            'Travis-API-Version': '3',
+        }
+
+        request = requests.get('https://api.travis-ci.org/job/' + job_id + '/log', headers=headers)
+        log = json.loads(request.text)
+
+        return log['content']

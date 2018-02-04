@@ -14,3 +14,8 @@ class TestTravisFailFinder:
     def test_get_job_id(self):
         job_service = JobService()
         assert job_service.get_job_id('337061161') == 337061162
+
+    def test_get_log(self):
+        job_service = JobService()
+        log = job_service.get_log('337061162')
+        assert log.find('exited with 1') > 1
