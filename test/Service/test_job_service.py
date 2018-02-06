@@ -24,6 +24,9 @@ class TestTravisFailFinder:
         if args[0] == 'https://api.travis-ci.org/repo/dbould%2Ftravis-fail-finder':
             with open(os.getcwd() + '/test/Mocks/repo_response.json', 'r') as content_file:
                 return MockResponse(content_file.read(), 200)
+        if args[0] == 'https://api.travis-ci.org/repo/17456283/branches':
+            with open(os.getcwd() + '/test/Mocks/branch_response.json', 'r') as content_file:
+                return MockResponse(content_file.read(), 200)
         elif args[0] == 'http://someotherurl.com/anothertest.json':
             return MockResponse({"key2": "value2"}, 200)
 
@@ -31,7 +34,7 @@ class TestTravisFailFinder:
 
     # We patch 'requests.get' with our own method. The mock object is passed in to our test case method.
     @mock.patch('requests.get', side_effect=mocked_requests_get)
-    def test_fetch(self, mock_get):
+    def test_get_repo_id(self, mock_get):
         # Assert requests.get calls
         mgc = JobService().create()
         json_data = mgc.get_repo_id('dbould%2Ftravis-fail-finder')
@@ -40,11 +43,8 @@ class TestTravisFailFinder:
     if __name__ == '__main__':
         unittest.main()
 
-    def test_get_repo_id(self):
-        job_service = JobService.create()
-        assert job_service.get_repo_id('dbould%2Ftravis-fail-finder') == 17456283
-
-    def test_get_branch_id(self):
+    @mock.patch('requests.get', side_effect=mocked_requests_get)
+    def test_get_branch_id(self, mock_get):
         job_service = JobService.create()
         assert job_service.get_branch_id('17456283', 'failing_branch') == 337061161
 
