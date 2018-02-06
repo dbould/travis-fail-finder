@@ -1,0 +1,119 @@
+{
+    "@type": "branches",
+    "@href": "/repo/17456283/branches",
+    "@representation": "standard",
+    "@pagination": {
+        "limit": 25,
+        "offset": 0,
+        "count": 3,
+        "is_first": true,
+        "is_last": true,
+        "next": null,
+        "prev": null,
+        "first": {
+            "@href": "/repo/17456283/branches",
+            "offset": 0,
+            "limit": 25
+        },
+        "last": {
+            "@href": "/repo/17456283/branches",
+            "offset": 0,
+            "limit": 25
+        }
+    },
+    "branches": [
+        {
+            "@type": "branch",
+            "@href": "/repo/17456283/branch/master",
+            "@representation": "standard",
+            "name": "master",
+            "repository": {
+                "@type": "repository",
+                "@href": "/repo/17456283",
+                "@representation": "minimal",
+                "id": 17456283,
+                "name": "travis-fail-finder",
+                "slug": "dbould/travis-fail-finder"
+            },
+            "default_branch": true,
+            "exists_on_github": true,
+            "last_build": {
+                "@type": "build",
+                "@href": "/build/337891653",
+                "@representation": "minimal",
+                "id": 337891653,
+                "number": "30",
+                "state": "failed",
+                "duration": 33,
+                "event_type": "push",
+                "previous_state": "failed",
+                "pull_request_title": null,
+                "pull_request_number": null,
+                "started_at": "2018-02-06T07:32:36Z",
+                "finished_at": "2018-02-06T07:33:09Z"
+            }
+        },
+        {
+            "@type": "branch",
+            "@href": "/repo/17456283/branch/passing_branch",
+            "@representation": "standard",
+            "name": "passing_branch",
+            "repository": {
+                "@type": "repository",
+                "@href": "/repo/17456283",
+                "@representation": "minimal",
+                "id": 17456283,
+                "name": "travis-fail-finder",
+                "slug": "dbould/travis-fail-finder"
+            },
+            "default_branch": false,
+            "exists_on_github": true,
+            "last_build": {
+                "@type": "build",
+                "@href": "/build/337069014",
+                "@representation": "minimal",
+                "id": 337069014,
+                "number": "15",
+                "state": "passed",
+                "duration": 27,
+                "event_type": "push",
+                "previous_state": "failed",
+                "pull_request_title": null,
+                "pull_request_number": null,
+                "started_at": "2018-02-03T23:24:23Z",
+                "finished_at": "2018-02-03T23:24:50Z"
+            }
+        },
+        {
+            "@type": "branch",
+            "@href": "/repo/17456283/branch/failing_branch",
+            "@representation": "standard",
+            "name": "failing_branch",
+            "repository": {
+                "@type": "repository",
+                "@href": "/repo/17456283",
+                "@representation": "minimal",
+                "id": 17456283,
+                "name": "travis-fail-finder",
+                "slug": "dbould/travis-fail-finder"
+            },
+            "default_branch": false,
+            "exists_on_github": true,
+            "last_build": {
+                "@type": "build",
+                "@href": "/build/337061161",
+                "@representation": "minimal",
+                "id": 337061161,
+                "number": "10",
+                "state": "failed",
+                "duration": 36,
+                "event_type": "push",
+                "previous_state": null,
+                "pull_request_title": null,
+                "pull_request_number": null,
+                "started_at": "2018-02-03T22:45:41Z",
+                "finished_at": "2018-02-03T22:46:17Z"
+            }
+        }
+    ]
+}

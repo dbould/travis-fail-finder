@@ -1,0 +1,69 @@
+{
+    "@type": "jobs",
+    "@href": "/build/337061161/jobs",
+    "@representation": "standard",
+    "jobs": [
+        {
+            "@type": "job",
+            "@href": "/job/337061162",
+            "@representation": "standard",
+            "@permissions": {
+                "read": true,
+                "debug": true,
+                "cancel": true,
+                "restart": true,
+                "delete_log": true
+            },
+            "id": 337061162,
+            "allow_failure": false,
+            "number": "10.1",
+            "state": "failed",
+            "started_at": "2018-02-03T22:45:41Z",
+            "finished_at": "2018-02-03T22:46:17Z",
+            "build": {
+                "@type": "build",
+                "@href": "/build/337061161",
+                "@representation": "minimal",
+                "id": 337061161,
+                "number": "10",
+                "state": "failed",
+                "duration": 36,
+                "event_type": "push",
+                "previous_state": null,
+                "pull_request_title": null,
+                "pull_request_number": null,
+                "started_at": "2018-02-03T22:45:41Z",
+                "finished_at": "2018-02-03T22:46:17Z"
+            },
+            "queue": "builds.ec2",
+            "repository": {
+                "@type": "repository",
+                "@href": "/repo/17456283",
+                "@representation": "minimal",
+                "id": 17456283,
+                "name": "travis-fail-finder",
+                "slug": "dbould/travis-fail-finder"
+            },
+            "commit": {
+                "@type": "commit",
+                "@representation": "minimal",
+                "id": 100198081,
+                "sha": "146e269f230090a750971cf39723c687bc298bf9",
+                "ref": "refs/heads/failing_branch",
+                "message": "New method and corresponding test to get branch id",
+                "compare_url": "https://github.com/dbould/travis-fail-finder/compare/failing_branch",
+                "committed_at": null
+            },
+            "owner": {
+                "@type": "user",
+                "@href": "/user/475199",
+                "@representation": "minimal",
+                "id": 475199,
+                "login": "dbould"
+            },
+            "stage": null,
+            "created_at": "2018-02-03T22:45:38.376Z",
+            "updated_at": "2018-02-03T22:46:17.271Z"
+        }
+    ]
+}
