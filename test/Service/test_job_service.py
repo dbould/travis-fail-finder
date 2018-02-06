@@ -27,6 +27,9 @@ class TestTravisFailFinder:
         if args[0] == 'https://api.travis-ci.org/repo/17456283/branches':
             with open(os.getcwd() + '/test/Mocks/branch_response.json', 'r') as content_file:
                 return MockResponse(content_file.read(), 200)
+        if args[0] == 'https://api.travis-ci.org/build/337061161/jobs':
+            with open(os.getcwd() + '/test/Mocks/jobs_response.json', 'r') as content_file:
+                return MockResponse(content_file.read(), 200)
         elif args[0] == 'http://someotherurl.com/anothertest.json':
             return MockResponse({"key2": "value2"}, 200)
 
@@ -48,7 +51,8 @@ class TestTravisFailFinder:
         job_service = JobService.create()
         assert job_service.get_branch_id('17456283', 'failing_branch') == 337061161
 
-    def test_get_job_id(self):
+    @mock.patch('requests.get', side_effect=mocked_requests_get)
+    def test_get_job_id(self, mock_get):
         job_service = JobService().create()
         assert job_service.get_job_id('337061161') == 337061162
 
