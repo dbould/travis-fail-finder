@@ -30,6 +30,9 @@ class TestTravisFailFinder:
         if args[0] == 'https://api.travis-ci.org/build/337061161/jobs':
             with open(os.getcwd() + '/test/Mocks/jobs_response.json', 'r') as content_file:
                 return MockResponse(content_file.read(), 200)
+        if args[0] == 'https://api.travis-ci.org/job/337061162/log':
+            with open(os.getcwd() + '/test/Mocks/log_response.json', 'r') as content_file:
+                return MockResponse(content_file.read(), 200)
         elif args[0] == 'http://someotherurl.com/anothertest.json':
             return MockResponse({"key2": "value2"}, 200)
 
@@ -56,7 +59,8 @@ class TestTravisFailFinder:
         job_service = JobService().create()
         assert job_service.get_job_id('337061161') == 337061162
 
-    def test_get_log(self):
+    @mock.patch('requests.get', side_effect=mocked_requests_get)
+    def test_get_log(self, mock_get):
         job_service = JobService().create()
         log = job_service.get_log('337061162')
         assert log.find('exited with 1') > 1
