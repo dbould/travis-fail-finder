@@ -1,0 +1,38 @@
+{
+    "@type": "repository",
+    "@href": "/repo/17456283",
+    "@representation": "standard",
+    "@permissions": {
+        "read": true,
+        "admin": true,
+        "activate": true,
+        "deactivate": true,
+        "star": true,
+        "unstar": true,
+        "create_cron": true,
+        "create_env_var": true,
+        "create_key_pair": true,
+        "delete_key_pair": true,
+        "create_request": true
+    },
+    "id": 17456283,
+    "name": "travis-fail-finder",
+    "slug": "dbould/travis-fail-finder",
+    "description": "Display errors from Travis",
+    "github_language": null,
+    "active": true,
+    "private": false,
+    "owner": {
+        "@type": "user",
+        "id": 475199,
+        "login": "dbould",
+        "@href": "/user/475199"
+    },
+    "default_branch": {
+        "@type": "branch",
+        "@href": "/repo/17456283/branch/master",
+        "@representation": "minimal",
+        "name": "master"
+    },
+    "starred": false
+}
