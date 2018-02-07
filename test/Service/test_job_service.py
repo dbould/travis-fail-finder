@@ -21,8 +21,6 @@ class TestTravisFailFinder:
         if args[0] == 'https://api.travis-ci.org/job/337061162/log':
             with open(os.getcwd() + '/test/MockResponses/log_response.json', 'r') as content_file:
                 return MockApiResponse(content_file.read(), 200)
-        elif args[0] == 'http://someotherurl.com/anothertest.json':
-            return MockApiResponse({"key2": "value2"}, 200)
 
         return MockApiResponse(None, 404)
 
