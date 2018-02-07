@@ -1,5 +1,6 @@
 {
   "repository": "repository-name",
   "repository_login": "github-username",
-  "auth_token": "travis-token"
+  "auth_token": "travis-token",
+  "base_url": "https://api.travis-ci.org/"
 }
