@@ -24,9 +24,8 @@ class TestJobService:
 
     @mock.patch('requests.get', side_effect=mocked_requests_get)
     def test_get_repo_id(self, mock_get):
-        mgc = JobService().create()
-        json_data = mgc.get_repo_id('dbould%2Ftravis-fail-finder')
-        assert json_data == 17456283
+        job_service = JobService().create()
+        assert job_service.get_repo_id('dbould%2Ftravis-fail-finder') == 17456283
 
     @mock.patch('requests.get', side_effect=mocked_requests_get)
     def test_get_branch_id(self, mock_get):
