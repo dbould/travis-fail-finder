@@ -26,7 +26,6 @@ class TestTravisFailFinder:
 
     @mock.patch('requests.get', side_effect=mocked_requests_get)
     def test_get_repo_id(self, mock_get):
-        # Assert requests.get calls
         mgc = JobService().create()
         json_data = mgc.get_repo_id('dbould%2Ftravis-fail-finder')
         assert json_data == 17456283
