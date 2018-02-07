@@ -30,9 +30,6 @@ class TestTravisFailFinder:
         json_data = mgc.get_repo_id('dbould%2Ftravis-fail-finder')
         assert json_data == 17456283
 
-    if __name__ == '__main__':
-        unittest.main()
-
     @mock.patch('requests.get', side_effect=mocked_requests_get)
     def test_get_branch_id(self, mock_get):
         job_service = JobService.create()
