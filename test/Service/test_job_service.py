@@ -4,7 +4,7 @@ from TravisFailFinder import JobService
 from unittest import mock
 
 
-class TestTravisFailFinder:
+class TestJobService:
 
     def mocked_requests_get(*args, **kwargs):
         if args[0] == 'https://api.travis-ci.org/repo/dbould%2Ftravis-fail-finder':
