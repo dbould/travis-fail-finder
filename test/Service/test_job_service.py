@@ -24,7 +24,6 @@ class TestTravisFailFinder:
 
         return MockApiResponse(None, 404)
 
-    # We patch 'requests.get' with our own method. The mock object is passed in to our test case method.
     @mock.patch('requests.get', side_effect=mocked_requests_get)
     def test_get_repo_id(self, mock_get):
         # Assert requests.get calls
