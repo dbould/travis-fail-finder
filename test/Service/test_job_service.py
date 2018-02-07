@@ -1,42 +1,30 @@
-import sys
-
 import os
 
 from TravisFailFinder import JobService
 import unittest
 from unittest import mock
+from test.MockApiResponse import MockApiResponse
 
 
 class TestTravisFailFinder:
 
     def mocked_requests_get(*args, **kwargs):
-        class MockResponse:
-            text = ''
-
-            def __init__(self, json_data, status_code):
-                self.json_data = json_data
-                self.status_code = status_code
-                self.text = json_data
-
-            def json(self):
-                return self.json_data
-
         if args[0] == 'https://api.travis-ci.org/repo/dbould%2Ftravis-fail-finder':
             with open(os.getcwd() + '/test/MockResponses/repo_response.json', 'r') as content_file:
-                return MockResponse(content_file.read(), 200)
+                return MockApiResponse(content_file.read(), 200)
         if args[0] == 'https://api.travis-ci.org/repo/17456283/branches':
             with open(os.getcwd() + '/test/MockResponses/branch_response.json', 'r') as content_file:
-                return MockResponse(content_file.read(), 200)
+                return MockApiResponse(content_file.read(), 200)
         if args[0] == 'https://api.travis-ci.org/build/337061161/jobs':
             with open(os.getcwd() + '/test/MockResponses/jobs_response.json', 'r') as content_file:
-                return MockResponse(content_file.read(), 200)
+                return MockApiResponse(content_file.read(), 200)
         if args[0] == 'https://api.travis-ci.org/job/337061162/log':
             with open(os.getcwd() + '/test/MockResponses/log_response.json', 'r') as content_file:
-                return MockResponse(content_file.read(), 200)
+                return MockApiResponse(content_file.read(), 200)
         elif args[0] == 'http://someotherurl.com/anothertest.json':
-            return MockResponse({"key2": "value2"}, 200)
+            return MockApiResponse({"key2": "value2"}, 200)
 
-        return MockResponse(None, 404)
+        return MockApiResponse(None, 404)
 
     # We patch 'requests.get' with our own method. The mock object is passed in to our test case method.
     @mock.patch('requests.get', side_effect=mocked_requests_get)
