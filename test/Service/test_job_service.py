@@ -1,9 +1,7 @@
 import os
-
-from TravisFailFinder import JobService
-import unittest
-from unittest import mock
 from test.MockApiResponse import MockApiResponse
+from TravisFailFinder import JobService
+from unittest import mock
 
 
 class TestTravisFailFinder:
