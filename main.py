@@ -6,10 +6,16 @@ from TravisFailFinder import LogService
 fullCmdArguments = sys.argv
 argumentList = fullCmdArguments[1:]
 
-unixOptions = "hb:v"
-gnuOptions = ["help", "branch", "verbose"]
+unixOptions = "h:b:"
+gnuOptions = ["help=", "branch="]
 
-print(getopt.getopt(argumentList, unixOptions, gnuOptions))
+arguments, values = getopt.getopt(argumentList, unixOptions, gnuOptions)
+
+print(arguments)
+for currentArgument, currentValue in arguments:
+    print(currentArgument + " : " + currentValue)
+
+print()
 sys.exit()
 
 job_service = JobService().create()
